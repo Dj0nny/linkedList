@@ -9,12 +9,6 @@ var List = function() {
 }
 
 Node.prototype = {
-    getValue: function() {
-        return this.value;
-    },
-    getNext: function() {
-        return this.next;
-    },
     isNull: function() {
         if((this.next) == null)
             return true;
@@ -42,20 +36,23 @@ List.prototype = {
     },
     getLength: function() {
         return this.listLength;
+    },
+    printList: function() {
+        var currentNode = this.head;
+        while(currentNode.next) {
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        console.log(currentNode.value);
     }
-}
-
-
-function isNull(node) {
-    if(node.next == null)
-        return true;
-    else
-        return false;
 }
 
 var list = new List();
 list.addNode(5);
 list.addNode(7);
 list.addNode(8);
-console.log(list);
-console.log(list.getLength(list));
+list.addNode(10);
+list.addNode(14);
+list.addNode(13);
+list.addNode(12);
+list.printList();
