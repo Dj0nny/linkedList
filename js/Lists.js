@@ -68,8 +68,7 @@ List.prototype = {
             } else 
                 currentNode = currentNode.next;
         }
-    },
-    /*push: function(value) {
+    }/*,push: function(value) {
         var tail = this.head;
         var pushedNode = new Node(value);
         pushedNode.next = tail;
