@@ -39,20 +39,54 @@ List.prototype = {
     },
     printList: function() {
         var currentNode = this.head;
-        while(currentNode.next) {
+        while(currentNode) {
             console.log(currentNode.value);
             currentNode = currentNode.next;
         }
-        console.log(currentNode.value);
-    }
+    },
+    findElement: function(value) {
+        var currentNode = this.head;
+        var position = 0;
+        while(currentNode) {
+            if(currentNode.value == value)
+                return position;
+            else {
+                position++;
+                currentNode = currentNode.next
+            }
+        }
+    },
+    pop: function() {
+        var currentNode = this.head;
+        while(currentNode) {
+            if(currentNode.next.next == null) {
+                var temp = currentNode.next.value;
+                delete currentNode.next;
+                console.log(temp);
+                this.listLength = this.getLength() - 1
+                return;
+            } else 
+                currentNode = currentNode.next;
+        }
+    },
+    /*push: function(value) {
+        var tail = this.head;
+        var pushedNode = new Node(value);
+        pushedNode.next = tail;
+        this.listLength = this.getLength() + 1;
+        return pushedNode;
+        //console.log(tail);
+    }*/
 }
+
 
 var list = new List();
 list.addNode(5);
 list.addNode(7);
 list.addNode(8);
 list.addNode(10);
-list.addNode(14);
+list.addNode(11);
 list.addNode(13);
-list.addNode(12);
-list.printList();
+list.addNode(14);
+
+
