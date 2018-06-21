@@ -40,7 +40,7 @@ List.prototype = {
     printList: function() {
         var currentNode = this.head;
         while(currentNode) {
-            console.log(currentNode.value);
+            jQuery("ul.list").append("<li>" + currentNode.value + "</li>");
             currentNode = currentNode.next;
         }
     },
@@ -77,15 +77,4 @@ List.prototype = {
         //console.log(tail);
     }*/
 }
-
-
-var list = new List();
-list.addNode(5);
-list.addNode(7);
-list.addNode(8);
-list.addNode(10);
-list.addNode(11);
-list.addNode(13);
-list.addNode(14);
-
 

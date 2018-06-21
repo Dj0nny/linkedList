@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lists</title>
-        <script src="js/Lists.js"></script>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Linked List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/foundation.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/what-input.js"></script>
+        <script src="js/custom/Lists.js"></script>
     </head>
     <body>
-        <form>
-            
-        </form>
+
+        <div class="repository-title">
+            <div class="row">
+                <div class="columns medium-12">
+                    <h1>Linked List</h1>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="output">
+            <div class="row">
+                <div class="columns medium-12">
+                    <ul class="list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var list = new List();
+            list.addNode(5);
+            list.addNode(7);
+            list.addNode(8);
+            list.addNode(10);
+            list.addNode(11);
+            list.addNode(13);
+            list.addNode(14);
+            list.printList();
+        </script>
     </body>
 </html>

@@ -1,0 +1,28 @@
+.repository-title h1 {
+    text-align: center;
+    margin: 0px;
+}
+
+.output {
+    text-align: left;
+    margin-top: 50px;
+}
+
+ul.list {
+    margin: 0px;
+}
+
+.list li {
+    display: inline;
+    padding: 25px;
+    border: 1px dashed #000;
+    margin: 15px;
+}
+
+.list li:first-child {
+    margin-left: 0px;
+}
+
+.list li:last-child {
+    margin-right: 0px;
+}
