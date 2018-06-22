@@ -6,6 +6,8 @@
 .output {
     text-align: left;
     margin-top: 50px;
+    padding: 25px;
+    display: none;
 }
 
 ul.list {

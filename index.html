@@ -10,6 +10,7 @@
         <script src="js/jquery.js"></script>
         <script src="js/foundation.min.js"></script>
         <script src="js/what-input.js"></script>
+        <script src="js/custom/custom.js"></script>
         <script src="js/custom/Lists.js"></script>
     </head>
     <body>
@@ -24,25 +25,78 @@
 
         <hr>
 
-        <div class="output">
+        <div class="controls">
             <div class="row">
-                <div class="columns medium-12">
-                    <ul class="list">
+                <div class="columns">
+                    <ul class="tabs" data-tabs id="control-tabs">
+                        <li class="tabs-title is-active" aria-selected="true"><a href="#panel0">Add node</a></li>
+                        <li class="tabs-title"><a href="#panel1">Print List</a></li>
                     </ul>
+
+                    <div class="tabs-content" data-tabs-content="control-tabs">
+                        <div class="tabs-panel is-active" id="panel0">
+                            <div class="add-node-control">
+                                <div class="row">
+                                    <div class="columns medium-6">
+                                        <input type="number" id="node-value" required />
+                                    </div>
+                                    <div class="columns medium-4">
+                                        <input type="submit" class="button" onclick="insertNode()" value="Insert node"/>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <div class="row">
+                                        <div class="columns medium-12">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabs-panel" id="panel1">
+                            <div class="print-list-control">
+                                <div class="row">
+                                    <div class="columns medium-12 text-center">
+                                        <input type="submit" class="button" onclick="viewList()" value="Print list"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="output">
+                                <div class="row">
+                                    <div class="columns medium-12">
+                                        <ul class="list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabs-panel" id="panel2">
+                            10
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <script>
+            jQuery(document).foundation();
+
             var list = new List();
-            list.addNode(5);
-            list.addNode(7);
-            list.addNode(8);
-            list.addNode(10);
-            list.addNode(11);
-            list.addNode(13);
-            list.addNode(14);
-            list.printList();
+            
+
+            function insertNode() {
+                var nodeValue = jQuery("#node-value").val();
+                nodeValue = parseInt(nodeValue);
+                list.addNode(nodeValue);
+                alert("The node " + nodeValue +  " was inserted");
+            }
+            
+            function viewList() {
+                if(list.getLength() == 0) {
+                    alert("The list is empty")
+                } else {
+                    jQuery(".output").css("display", "block");
+                    list.printList();
+                }
+            }
         </script>
     </body>
 </html>
