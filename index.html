@@ -80,13 +80,16 @@
             jQuery(document).foundation();
 
             var list = new List();
-            
+            var JSONlist = Array();
+            var JSONnodeString;
 
             function insertNode() {
                 var nodeValue = jQuery("#node-value").val();
                 nodeValue = parseInt(nodeValue);
                 list.addNode(nodeValue);
                 alert("The node " + nodeValue +  " was inserted");
+                JSONnodeString = JSON.stringify({value: nodeValue});
+                JSONlist.push(JSONnodeString);
             }
             
             function viewList() {
@@ -95,6 +98,7 @@
                 } else {
                     jQuery(".output").css("display", "block");
                     list.printList();
+                    console.log(JSONlist);
                 }
             }
         </script>
