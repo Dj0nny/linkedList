@@ -18,7 +18,7 @@ ul.list {
     display: inline;
     padding: 25px;
     border: 1px dashed #000;
-    margin: 15px;
+    margin: 5px;
 }
 
 .list li:first-child {

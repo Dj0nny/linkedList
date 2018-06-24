@@ -1,3 +1,23 @@
+function getNode(title,childRows,key){
+    var setKey = (key == null)?("childNode"):(key);
+    return {
+        value: title,
+        [setKey]: childRows
+    };
+};
+ 
+function createNestedJSON(array,childRows,key = null){
+    var array = array.reverse();
+    array = array.filter(function(n){return (n != undefined && n != "") });
+ 
+    var formate = getNode(array[0],childRows,key);
+    for(var i = 1; i < (array.length); i++){
+        formate = getNode(array[i],formate,key);
+    };
+    return formate;
+};
+
+
 var Node = function(value, next) {
     this.value = value;
     this.next = null;
@@ -39,10 +59,18 @@ List.prototype = {
     },
     printList: function() {
         var currentNode = this.head;
+        var temp = "";
+        var concat = "";
         while(currentNode) {
-            jQuery("ul.list").append("<li>" + currentNode.value + "</li>");
+            //jQuery("ul.list").append("<li>" + currentNode.value + "</li>");
+            console.log(currentNode.value);
+            temp = currentNode.value + "|";
             currentNode = currentNode.next;
+            concat = concat + temp;
         }
+        var array = (concat).split("|");
+        console.log(createNestedJSON(array,{"value":"Null"},"next"));
+
     },
     findElement: function(value) {
         var currentNode = this.head;

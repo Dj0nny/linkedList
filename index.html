@@ -28,6 +28,7 @@
         <div class="controls">
             <div class="row">
                 <div class="columns">
+
                     <ul class="tabs" data-tabs id="control-tabs">
                         <li class="tabs-title is-active" aria-selected="true"><a href="#panel0">Add node</a></li>
                         <li class="tabs-title"><a href="#panel1">Print List</a></li>
@@ -44,14 +45,9 @@
                                         <input type="submit" class="button" onclick="insertNode()" value="Insert node"/>
                                     </div>
                                 </div>
-                                <div class="message">
-                                    <div class="row">
-                                        <div class="columns medium-12">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+
                         <div class="tabs-panel" id="panel1">
                             <div class="print-list-control">
                                 <div class="row">
@@ -60,18 +56,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="output">
-                                <div class="row">
-                                    <div class="columns medium-12">
-                                        <ul class="list">
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <div class="tabs-panel" id="panel2">
-                            10
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -80,25 +66,22 @@
             jQuery(document).foundation();
 
             var list = new List();
-            var JSONlist = Array();
-            var JSONnodeString;
 
             function insertNode() {
                 var nodeValue = jQuery("#node-value").val();
                 nodeValue = parseInt(nodeValue);
                 list.addNode(nodeValue);
                 alert("The node " + nodeValue +  " was inserted");
-                JSONnodeString = JSON.stringify({value: nodeValue});
-                JSONlist.push(JSONnodeString);
+                jQuery("#node-value").val('');
             }
             
             function viewList() {
                 if(list.getLength() == 0) {
-                    alert("The list is empty")
+                    alert("The list is empty");
                 } else {
                     jQuery(".output").css("display", "block");
                     list.printList();
-                    console.log(JSONlist);
+                    alert("Open the javascript console");
                 }
             }
         </script>
