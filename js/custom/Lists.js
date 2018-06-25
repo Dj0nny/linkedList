@@ -62,14 +62,16 @@ List.prototype = {
         var temp = "";
         var concat = "";
         while(currentNode) {
-            //jQuery("ul.list").append("<li>" + currentNode.value + "</li>");
             console.log(currentNode.value);
             temp = currentNode.value + "|";
             currentNode = currentNode.next;
             concat = concat + temp;
         }
         var array = (concat).split("|");
-        console.log(createNestedJSON(array,{"value":"Null"},"next"));
+        var JSONnode = new PrettyJSON.view.Node({
+            el:jQuery('.output'),
+            data: createNestedJSON(array,{"value":"Null"},"next")
+        });
 
     },
     findElement: function(value) {

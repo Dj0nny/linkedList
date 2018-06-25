@@ -8,9 +8,11 @@
         <link rel="stylesheet" type="text/css" media="screen" href="css/foundation.min.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <script src="js/jquery.js"></script>
+        <script src="js/custom/underscore-min.js"></script>
+        <script src="js/custom/backbone-min.js"></script>
         <script src="js/foundation.min.js"></script>
         <script src="js/what-input.js"></script>
-        <script src="js/custom/custom.js"></script>
+        <script src="js/custom/pretty-json-min.js"></script>
         <script src="js/custom/Lists.js"></script>
     </head>
     <body>
@@ -53,6 +55,9 @@
                                 <div class="row">
                                     <div class="columns medium-12 text-center">
                                         <input type="submit" class="button" onclick="viewList()" value="Print list"/>
+                                        <div class="output">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +86,6 @@
                 } else {
                     jQuery(".output").css("display", "block");
                     list.printList();
-                    alert("Open the javascript console");
                 }
             }
         </script>
