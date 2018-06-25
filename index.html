@@ -7,12 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/foundation.min.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/pretty-json.css" />
+ 
         <script src="js/jquery.js"></script>
         <script src="js/custom/underscore-min.js"></script>
         <script src="js/custom/backbone-min.js"></script>
         <script src="js/foundation.min.js"></script>
         <script src="js/what-input.js"></script>
         <script src="js/custom/pretty-json-min.js"></script>
+        <script src="js/custom/custom.js"></script>
         <script src="js/custom/Lists.js"></script>
     </head>
     <body>
@@ -34,6 +37,7 @@
                     <ul class="tabs" data-tabs id="control-tabs">
                         <li class="tabs-title is-active" aria-selected="true"><a href="#panel0">Add node</a></li>
                         <li class="tabs-title"><a href="#panel1">Print List</a></li>
+                        <li class="tabs-title"><a href="#panel2">Find Element</a></li>
                     </ul>
 
                     <div class="tabs-content" data-tabs-content="control-tabs">
@@ -56,8 +60,20 @@
                                     <div class="columns medium-12 text-center">
                                         <input type="submit" class="button" onclick="viewList()" value="Print list"/>
                                         <div class="output">
-
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tabs-panel" id="panel2">
+                            <div class="find-element-control">
+                                <div class="row">
+                                    <div class="columns medium-6">
+                                        <input type="number" id="searched-value" required />
+                                    </div>
+                                    <div class="columns medium-4">
+                                        <input type="submit" class="button" onclick="searchElement()" value="Search" />
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +91,7 @@
             function insertNode() {
                 var nodeValue = jQuery("#node-value").val();
                 nodeValue = parseInt(nodeValue);
+
                 list.addNode(nodeValue);
                 alert("The node " + nodeValue +  " was inserted");
                 jQuery("#node-value").val('');
@@ -87,6 +104,16 @@
                     jQuery(".output").css("display", "block");
                     list.printList();
                 }
+            }
+
+            function searchElement() {
+                var searchedValue = jQuery("#searched-value").val();
+                searchedValue = parseInt(searchedValue);
+
+                position = list.findElement(searchedValue);
+                
+                alter("The searched element " + searchedValue + " is in the position number " + position);
+
             }
         </script>
     </body>
