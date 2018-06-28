@@ -38,6 +38,7 @@
                         <li class="tabs-title is-active" aria-selected="true"><a href="#panel0">Add node</a></li>
                         <li class="tabs-title"><a href="#panel1">Print List</a></li>
                         <li class="tabs-title"><a href="#panel2">Find Element</a></li>
+                        <li class="tabs-title"><a href="#panel3">Pop a element</a></li>
                     </ul>
 
                     <div class="tabs-content" data-tabs-content="control-tabs">
@@ -79,6 +80,18 @@
                             </div>
                         </div>
 
+                        <div class="tabs-panel" id="panel3">
+                            <div class="pop-element-control">
+                                <div class="row">
+                                    <div class="columns medium-12 text-center">
+                                        <input type="submit" class="button" onclick="popList()" value="Pop" />
+                                        <div class="output">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -113,7 +126,15 @@
                 position = list.findElement(searchedValue);
                 
                 alter("The searched element " + searchedValue + " is in the position number " + position);
+            }
 
+            function popList() {
+                if(list.getLength() == 0) {
+                    alert("The list is empty");
+                } else {
+                    var poped = list.pop();
+                    console.log(poped);
+                }
             }
         </script>
     </body>

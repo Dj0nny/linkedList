@@ -71,9 +71,9 @@ List.prototype = {
             if(currentNode.next.next == null) {
                 var temp = currentNode.next.value;
                 delete currentNode.next;
-                console.log(temp);
+                /*console.log(temp);*/
                 this.listLength = this.getLength() - 1
-                return;
+                return temp;
             } else 
                 currentNode = currentNode.next;
         }
